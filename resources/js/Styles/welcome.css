@@ -1,0 +1,308 @@
+.welmain {
+    width: 100%;
+    background-color: #fcfdfd;
+    height: 150vh;
+}
+
+.slider-container {
+    width: 100%;
+    background-color: #989595;
+    display: flex;
+}
+
+@keyframes rotateIn {
+    from {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes rotateInDelayed {
+    from {
+        transform: rotateY(-90deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes swipeIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slider-image1 {
+    width: 100%;
+    z-index: 99;
+}
+
+.slider-image2 {
+    width: 100%;
+    position: absolute;
+    z-index: 9;
+}
+.slider-image3 {
+    width: 100%;
+    position: absolute;
+}
+
+.slider-image1.rotating {
+    animation: rotateIn 1s ease-in-out forwards;
+}
+
+.slider-image2.rotating-delayed {
+    animation: rotateInDelayed 1s ease-in-out 0.5s forwards; /* delay added */
+}
+.slider-image3.rotating-delayed {
+    animation: rotateInDelayed 1s ease-in-out 0.5s forwards; /* delay added */
+}
+
+.welcards {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: norap;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #005940;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.welcard {
+    width: 25%;
+    height: 150px;
+    background-color: #dbdbdb;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    padding: 20px;
+    border-radius: 10px;
+    flex-direction: column;
+    cursor: pointer;
+    font-weight: bolder;
+    margin-right: 30px;
+    opacity: 0; /* Start hidden */
+}
+
+.welcard:hover {
+    background-color: #005940;
+    color: #fff;
+}
+
+.welcardinside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0; /* Start hidden */
+}
+
+.welcard h1 {
+    text-align: center;
+}
+
+.welcard-icon {
+    padding: 5px;
+    border-radius: 10%;
+    background-color: #005940;
+    font-size: 3em;
+    color: #fff;
+}
+
+.downloadapp{
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #005940;
+    border-bottom: #989595 solid 2px;
+    border-right: #989595 solid 2px;
+    border-left: #989595 solid 2px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    color: #fff;
+    padding: 10px;
+    border-bottom-left-radius: 250px;
+    border-bottom-right-radius: 250px;
+}
+.downloadappicon{
+    cursor: pointer;
+    transition: 0.5s;
+}
+.downloadappicon:hover{
+    color: #07e8a9;
+    transform: scale(1.3);
+    transition: 0.5s;
+}
+.downloadapp-buttons{
+    font-size: 2em;
+    color: #fff;
+    width: 20%;
+    font-weight: bolder;
+    align-items: center;align-content: center;justify-content: center;display: flex;
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .welcards {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        border: none;
+    }
+    .welcard {
+        width: 80%;
+        margin-bottom: 10px;
+        margin-right: 0;
+        height: 150px;
+        background-color: #dbdbdb;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        display: flex;
+        padding: 20px;
+        border-radius: 10px;
+        flex-direction: column;
+    }
+    .welcard h1 {
+        text-align: center;
+        font-size: 13px;
+    }
+    
+    .welcard-icon {
+        padding: 1px;
+        border-radius: 10%;
+        background-color: #005940;
+        font-size: 2em;
+        color: #fff;
+    }
+    .downloadapp{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #005940;
+        border-bottom: #989595 solid 1px;
+        border-right: #989595 solid 1px;
+        border-left: #989595 solid 1px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+        color: #fff;
+        padding: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    .downloadappicon{
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    .downloadappicon:hover{
+        color: #07e8a9;
+        transform: scale(1.3);
+        transition: 0.5s;
+    }
+    .downloadapp-buttons{
+        font-size: 1.2em;
+        color: #fff;
+        width: 30%;
+        font-weight: bolder;
+        align-items: center;align-content: center;justify-content: center;display: flex;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .welcards {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        border: none;
+    }
+    .welcard {
+        width: 40%;
+        margin-bottom: 30px;
+    }
+    .welcard h1 {
+        text-align: center;
+        font-size: 1em;
+    }
+    
+    .welcard-icon {
+        padding: 5px;
+        border-radius: 10%;
+        background-color: #005940;
+        font-size: 2em;
+        color: #fff;
+    }
+    .downloadapp{
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #005940;
+        border-bottom: #989595 solid 1px;
+        border-right: #989595 solid 1px;
+        border-left: #989595 solid 1px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+        color: #fff;
+        padding: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    .downloadappicon{
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    .downloadappicon:hover{
+        color: #07e8a9;
+        transform: scale(1.3);
+        transition: 0.5s;
+    }
+    .downloadapp-buttons{
+        font-size: 1.9em;
+        color: #fff;
+        width: 25%;
+        font-weight: bolder;
+        align-items: center;align-content: center;justify-content: center;display: flex;
+    }
+}
+
+.zooming {
+    animation: zoomIn 0.6s ease-in-out forwards;
+    opacity: 1; /* Ensure visibility after animation */
+}
+
+.swiping {
+    animation: swipeIn 0.4s ease-in-out forwards;
+    opacity: 1; /* Ensure visibility after animation */
+}

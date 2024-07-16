@@ -1,0 +1,18 @@
+@import url('https://fonts.bunny.net/css2?family=Figtree:wght@400;600;700&display=swap');
+/* resources/css/app.css */
+@font-face {
+    font-family: 'Figtree';
+    src: url('https://fonts.bunny.net/figtree/files/figtree-latin-600-normal.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css'; */

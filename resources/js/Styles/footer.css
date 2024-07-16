@@ -1,0 +1,70 @@
+.mainfooter{
+    background-color: #005940;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    min-height: 300px;
+    margin-top: 20px;
+
+}
+
+.footersection{
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.footersectionelement{
+    width: 19%;
+    align-items: left;
+    align-content: left;
+    justify-content: left;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+    margin-right: 20px;
+}
+.footersectionelement h1{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+.footersectionelement img{
+    width: 30%;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .footersection{
+        color: #fff;
+        padding: 1px;
+        width: 100%;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    .footersectionelement{
+        width: 90%;
+        align-items: left;
+        align-content: left;
+        justify-content: left;
+        display: flex;
+        flex-direction: column;
+        min-height: 50px;
+        margin-right: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 12px;
+    }
+    .footersectionelement img{
+        width: 30%;
+    }
+}

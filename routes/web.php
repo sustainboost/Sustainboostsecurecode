@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Mail\WelcomeEmail;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,18 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/test-email', function () {
+    $user = new \App\Models\User([
+        'name' => 'Test User',
+        'email' => 'test@yourdomain.com',
+        'role' => 'buyer',  // Example role
+    ]);
+
+    Mail::to($user->email)->send(new WelcomeEmail($user));
+
+    return 'Test email sent';
+});
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [

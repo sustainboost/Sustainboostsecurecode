@@ -276,6 +276,7 @@ const Guest: FC<GuestProps> = ({ children, isAuthenticated, userName, changeLang
                 </div>
                 {/* Main Content */}
                 <div className="guestchildren">
+                    okayokay pour les test
                     {/* <LanguageSwitcher changeLanguage={changeLanguage} /> */}
                     {children}
                 </div>

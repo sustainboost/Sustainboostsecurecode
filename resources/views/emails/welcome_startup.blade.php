@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome, Startup</title>
+    <title>Welcome</title>
 </head>
 <style>
         body { font-family: Arial, sans-serif; }
@@ -17,7 +17,7 @@
         }
         .contenttext{
             width: 100%;
-            padding: 30px;
+            padding: 20px;
             font-weight: bolder;
         }
         span{

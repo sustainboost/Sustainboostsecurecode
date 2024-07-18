@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Mail;
 Route::get('/test-email', function () {
     $user = new \App\Models\User([
         'name' => 'Test User',
-        'email' => 'test@yourdomain.com',
+        'email' => 'sustainboost@gmail.com',
         'role' => 'buyer',  // Example role
     ]);
 

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Mail\WelcomeEmail;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\StartupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,6 @@ Route::get('/test-email', function () {
     return 'Test email sent';
 });
 
-
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -48,5 +48,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::post('/startups', [StartupController::class, 'store'])->name('startups.store');
+    Route::get('/startups', [StartupController::class, 'index'])->name('startups.index');
+    Route::get('/startups/{startup}', [StartupController::class, 'show'])->name('startups.show');
+    Route::put('/startups/{startup}', [StartupController::class, 'update'])->name('startups.update');
+});
+
+// Web routes for frontend navigation
+Route::middleware(['auth:sanctum', 'verified'])->get('/startups/{any}', function () {
+    return Inertia::render('Startups');
+})->where('any', '.*');
 
 require __DIR__.'/auth.php';

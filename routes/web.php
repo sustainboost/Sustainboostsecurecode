@@ -61,4 +61,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/startups/{any}', function
     return Inertia::render('Startups');
 })->where('any', '.*');
 
+// Add the landing page route
+Route::get('/landing', function () {
+    return Inertia::render('Landing');
+})->name('landing');
+
 require __DIR__.'/auth.php';

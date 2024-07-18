@@ -4,6 +4,12 @@
 
 .navcontainer{
     background-color: #005940;
+    
+}
+.navcontainercontent{
+    width: 100%;
+    padding: 10px;
+
 }
 .authlogo{
     width: 10%;

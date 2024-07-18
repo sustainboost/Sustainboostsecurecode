@@ -1,3 +1,4 @@
+---
 deployment:
   tasks:
     - name: Deploy from Sustainboostsecurecode to public_html

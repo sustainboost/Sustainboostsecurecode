@@ -7,6 +7,8 @@ use Inertia\Inertia;
 use App\Mail\WelcomeEmail;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\StartupController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,17 +41,20 @@ Route::get('/', function () {
     ]);
 });
 
+// Dashboard route
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Profile routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+// Startup routes
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/startups', [StartupController::class, 'store'])->name('startups.store');
     Route::get('/startups', [StartupController::class, 'index'])->name('startups.index');
     Route::get('/startups/{startup}', [StartupController::class, 'show'])->name('startups.show');
@@ -57,7 +62,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 });
 
 // Web routes for frontend navigation
-Route::middleware(['auth:sanctum', 'verified'])->get('/startups/{any}', function () {
+Route::middleware(['auth', 'verified'])->get('/startups/{any}', function () {
     return Inertia::render('Startups');
 })->where('any', '.*');
 
@@ -65,5 +70,22 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/startups/{any}', function
 Route::get('/landing', function () {
     return Inertia::render('Landing');
 })->name('landing');
+
+// Email verification routes
+Route::get('/email/verify', function () {
+    return Inertia::render('Auth/VerifyEmail');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/dashboard');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('status', 'verification-link-sent');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 require __DIR__.'/auth.php';

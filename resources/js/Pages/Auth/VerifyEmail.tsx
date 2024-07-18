@@ -1,46 +1,45 @@
+import React from 'react';
+import { Head, Link, useForm } from '@inertiajs/react';
 import GuestLayout from '@/Layouts/GuestLayout';
 import PrimaryButton from '@/Components/PrimaryButton';
-import { Head, Link, useForm } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
 
-export default function VerifyEmail({ status }: { status?: string }) {
+export default function VerifyEmail() {
     const { post, processing } = useForm({});
 
-    const submit: FormEventHandler = (e) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-
         post(route('verification.send'));
+    };
+    interface PrimaryButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+        processing: boolean;
+    }
+    
+    const PrimaryButton: React.FC<PrimaryButtonProps> = ({ processing, children, ...props }) => {
+        return (
+            <button {...props} disabled={processing}>
+                {processing ? 'Processing...' : children}
+            </button>
+        );
     };
 
     return (
         <GuestLayout isAuthenticated={false} userName="" changeLanguage={() => {}}>
             <Head title="Email Verification" />
-
-            <div className="mb-4 text-sm text-gray-600">
-                Thanks for signing up! Before getting started, could you verify your email address by clicking on the
-                link we just emailed to you? If you didn't receive the email, we will gladly send you another.
+            <div className="container">
+                <h1>Email Verification</h1>
+                <p>
+                    Thanks for signing up! Before getting started, could you verify your email address by clicking on the
+                    link we just emailed to you? If you didn't receive the email, we will gladly send you another.
+                </p>
+                <form onSubmit={handleSubmit}>
+                    <PrimaryButton processing={processing}>
+                        Resend Verification Email
+                    </PrimaryButton>
+                </form>
+                <Link href={route('dashboard')} className="btn btn-primary mt-3">
+                    Go to Dashboard
+                </Link>
             </div>
-
-            {status === 'verification-link-sent' && (
-                <div className="mb-4 font-medium text-sm text-green-600">
-                    A new verification link has been sent to the email address you provided during registration.
-                </div>
-            )}
-
-            <form onSubmit={submit}>
-                <div className="mt-4 flex items-center justify-between">
-                    <PrimaryButton disabled={processing}>Resend Verification Email</PrimaryButton>
-
-                    <Link
-                        href={route('logout')}
-                        method="post"
-                        as="button"
-                        className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                        Log Out
-                    </Link>
-                </div>
-            </form>
         </GuestLayout>
     );
 }

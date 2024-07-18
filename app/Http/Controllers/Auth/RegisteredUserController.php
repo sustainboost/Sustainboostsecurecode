@@ -32,30 +32,31 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
-{
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|lowercase|email|max:255|unique:' . User::class,
-        'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        'role' => 'required|in:buyer,startup', // Validate the role field
-    ]);
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|lowercase|email|max:255|unique:' . User::class,
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'role' => 'required|in:buyer,startup', // Validate the role field
+        ]);
 
-    $user = User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-        'role' => $request->role, // Store the role in the database
-    ]);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => $request->role, // Store the role in the database
+        ]);
 
-    event(new Registered($user));
+        event(new Registered($user));
 
-    Auth::login($user);
+        Auth::login($user);
 
-    // Send the welcome email
-    Mail::to($user->email)->send(new WelcomeEmail($user));
+        // Send the welcome email
+        Mail::to($user->email)->send(new WelcomeEmail($user));
 
-    return redirect()->route('landing'); // Redirect to the landing page
-}
+        // Send email verification notification
+        $user->sendEmailVerificationNotification();
 
-    
+        return redirect()->route('verification.notice'); // Redirect to email verification notice page
+    }
 }

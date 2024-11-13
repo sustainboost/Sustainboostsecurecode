@@ -25,5 +25,12 @@
     "business_plan.title": "Elaborez votre plan d'affaire. \n Utilisez notre intélligence artificielle pour vous aider!",
     "courses.title": "Profitez du partage d'expérience avec nos partenaires professionnels! ",
     "dashboard": "Tableau de bord",
-    "market_text_title": "Faites une étude de marché en toute simplicité !"
+    "market_text_title": "Faites une étude de marché en toute simplicité !",
+    "remenber_me": "Se souvenir de moi",
+    "forgot_password": "Mot de passe oublié ?",
+    "noaccountcreate": "Vous n'avez pas de compte ? \n Creez en un maintenant !",
+    "Login": "Se connecter",
+    "market_text": " Saisissez vos paramètres et obtenez une analyse approfondie en un clic. Notre intelligence artificielle vous accompagne de A à Z.",
+    "market_apply":"Profitez maintenant !"
+    
 }

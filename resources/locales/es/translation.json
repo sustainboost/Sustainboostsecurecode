@@ -25,6 +25,12 @@
     "business_plan.title": "Elabora tu plan de negocio. \n Usa nuestra inteligencia artificial para ayudarte!",
     "courses.title": "Benefíciese de compartir experiencias con nuestros socios profesionales!",
     "dashboard": "Tablero",
-    "market_text_title" : "¡Realiza un estudio de mercado con facilidad!"
-
+    "market_text_title" : "¡Realiza un estudio de mercado con facilidad!",
+    "remenber_me": "Recuérdame",
+    "forgot_password": "¿Olvidaste tu contraseña?",
+    "noaccountcreate": "¿No tienes una cuenta? \n ¡Crea una ahora!",
+    "Login": "Inicio de sesión",
+    "market_text": "Ingrese sus parámetros y obtenga un análisis detallado con solo un clic. Nuestra inteligencia artificial lo acompaña de la A a la Z.",
+    "market_apply": "¡Aprovecha ahora!"
+    
 }

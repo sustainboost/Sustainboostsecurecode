@@ -32,7 +32,9 @@ createInertiaApp({
                     'US': 'en',
                     'ES': 'es',
                     'SA': 'ar',
-                    'CI': 'fr', // Côte d'Ivoire maps to French
+                    'CI': 'fr', 
+                    'GH': 'en',
+                    // Côte d'Ivoire maps to French
                     // Add more country-language mappings as needed
                 };
 

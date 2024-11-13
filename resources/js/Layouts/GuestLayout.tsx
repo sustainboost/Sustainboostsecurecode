@@ -93,12 +93,15 @@ const Guest: FC<GuestProps> = ({ children, isAuthenticated, userName, changeLang
                             <div className="logohome" onClick={() => window.open('/', '_self')}>
                                 <img src={Logo} alt="Logo" />
                             </div>
+                            
                             <nav>
                                 <ul>
                                     <li className="menu-item">
                                         <FaLightbulb /> {t('incubator')}
                                     </li>
-                                    <li className="menu-item">
+                                    <li className="menu-item"
+                                        onClick={() => window.open('/faire_une_etude', '_self')}
+                                    >
                                         <FaSearchDollar /> {t('market_research')}
                                     </li>
                                     <li

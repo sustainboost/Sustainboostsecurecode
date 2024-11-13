@@ -71,6 +71,11 @@ Route::get('/landing', function () {
     return Inertia::render('Landing');
 })->name('landing');
 
+// Page de Etude de marché 
+Route::get('/faire_une_etude', function () {
+    return Inertia::render('Etude_marche/Etude_marche');
+})->name('EtudePage');
+
 // Email verification routes
 Route::get('/email/verify', function () {
     return Inertia::render('Auth/VerifyEmail');

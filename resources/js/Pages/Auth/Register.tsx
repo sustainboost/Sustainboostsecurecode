@@ -103,7 +103,7 @@ export default function Register() {
 
                     {/* Add the Role selection field */}
                     <div className='registerinput'>
-                        <InputLabel htmlFor="role" value="Role" />
+                        <InputLabel htmlFor="role" value="choisir TYpe de compte" />
                         <select 
                             id="role"
                             name="role"
@@ -111,7 +111,7 @@ export default function Register() {
                             className="mt-1 block w-full"
                             onChange={(e) => setData('role', e.target.value)}
                             required>
-                            <option value="">Select a Role</option>
+                            <option value="">--</option>
                             <option value="buyer">Buyer</option>
                             <option value="startup">Startup</option>
                         </select>

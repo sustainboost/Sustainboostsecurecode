@@ -31,6 +31,7 @@
     "noaccountcreate": "Vous n'avez pas de compte ? \n Creez en un maintenant !",
     "Login": "Se connecter",
     "market_text": " Saisissez vos paramètres et obtenez une analyse approfondie en un clic. Notre intelligence artificielle vous accompagne de A à Z.",
-    "market_apply":"Profitez maintenant !"
+    "market_apply":"Profitez maintenant !",
+    "Dashboard":"Tableau de Bord"
     
 }

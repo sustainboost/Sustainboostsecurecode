@@ -31,6 +31,7 @@
     "noaccountcreate": "Do'nt have an account ? \n Create one now ! ",
     "Login": "Login",
     "market_text": "Enter your parameters and get an in-depth analysis with just one click. Our artificial intelligence supports you from A to Z.",
-    "market_apply":"Start now"
+    "market_apply":"Start now",
+    "Dashboard":"Dashboard"
     
 }

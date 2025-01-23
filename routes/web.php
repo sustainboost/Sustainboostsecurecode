@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\StartupController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\ChatGPTController;
+use App\Http\Controllers\CompanionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -92,5 +93,8 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('status', 'verification-link-sent');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+Route::post('/chat', [ChatGPTController::class, 'chat']);
+Route::post('/companion/chat', [CompanionController::class, 'chat']);
 
 require __DIR__.'/auth.php';

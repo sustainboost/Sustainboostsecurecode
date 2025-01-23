@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '@/Styles/comp.css'
+import { sendMessageToChatGPT } from '@/core/ApiClient';
 
 const CompanionChat: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,12 +16,9 @@ const CompanionChat: React.FC = () => {
         setChatHistory(updatedHistory);
 
         try {
-            const response = await axios.post('/api/companion/chat', {
-                messages: updatedHistory, // Historique complet
-            });
 
-            // Récupérer la réponse de l'assistant
-            const reply = response.data.choices[0].message.content;
+            const res = await axios.post('/chat', { message });
+            const reply = res.data.choices[0].message.content
 
             // Ajouter la réponse à l'historique
             setChatHistory((prev) => [...prev, { role: 'assistant', content: reply }]);
@@ -34,6 +32,10 @@ const CompanionChat: React.FC = () => {
 
         setMessage('');
     };
+
+
+
+
 
     return (
         <div>

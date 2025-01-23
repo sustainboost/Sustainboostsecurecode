@@ -94,7 +94,9 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('status', 'verification-link-sent');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-Route::post('/chat', [ChatGPTController::class, 'chat']);
+// Route::post('/chat', [ChatGPTController::class, 'chat']);
 Route::post('/companion/chat', [CompanionController::class, 'chat']);
+
+Route::post('/chat', [ChatGPTController::class, 'handleChat']);
 
 require __DIR__.'/auth.php';

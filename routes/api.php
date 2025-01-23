@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatGPTController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanionController;
@@ -20,3 +21,5 @@ Route::post('/companion/chat', [CompanionController::class, 'chat']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/chat', [ChatGPTController::class, 'handleChat']);
